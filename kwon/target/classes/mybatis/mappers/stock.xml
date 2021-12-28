@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="stock">
+	<insert id="insertstock" parameterType="StockDTO">
+		insert into
+		stock(stock_num, stock_name, stock_current, stock_maintain,
+		stock_manu_date, stock_expire_date)
+		values(#{stock_num}, #{stock_name},
+		#{stock_current}, #{stock_maintain}, #{stock_manu_date},
+		#{stock_expire_date})
+	</insert>
+
+	<select id="maxcode" resultType="java.lang.Integer">
+		select max(stock_num)
+		from stock
+	</select>
+
+	<select id="getall" resultType="StockDTO">
+		select *
+		from stock
+	</select>
+
+	<select id="getstock" parameterType="java.lang.Integer"
+		resultType="StockDTO">
+		select *
+		from stock
+		where stock_num = #{stock_num}
+	</select>
+
+	<select id="updatestock" parameterType="StockDTO">
+		update stock
+		set
+		stock_name=#{stock_name}, stock_current=#{stock_current},
+		stock_maintain=#{stock_maintain}
+		where #{stock_num}
+	</select>
+
+	<delete id="deletestock" parameterType="java.lang.Integer">
+
+		delete from stock
+		where stock_num = #{stock_num}
+	</delete>
+</mapper>

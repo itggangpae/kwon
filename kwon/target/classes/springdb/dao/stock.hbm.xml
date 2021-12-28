@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="springdb.domain"> 
+
+<class name="StockDTO" table="stock">
+
+<id name="stock_num" column="stock_num"/>
+<property name="stock_name" column="stock_name" />
+<property name="stock_current" column="stock_current" /> 
+<property name="stock_maintain" column="stock_maintain" />
+<property name="stock_manu_date" column="stock_manu_date" /> 
+<property name="stock_expire_date" column="stock_expire_date" />
+
+</class> 
+
+</hibernate-mapping>
